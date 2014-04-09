@@ -1424,6 +1424,9 @@ void CActiveAE::ApplySettingsToFormat(AEAudioFormat &format, AudioSettings &sett
   }
   else
   {
+   if (format.m_sampleRate < 48000)
+       format.m_sampleRate = 48000;
+
     format.m_dataFormat = AE_FMT_FLOAT;
     // consider user channel layout for those cases
     // 1. input stream is multichannel
